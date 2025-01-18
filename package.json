@@ -12,7 +12,7 @@
     "url": "git+https://github.com/annoyingmouse/wc-trim-middle.git"
   },
   "keywords": [
-    "progress",
+    "truncate",
     "web-component"
   ],
   "author": "Dominic Myers",
