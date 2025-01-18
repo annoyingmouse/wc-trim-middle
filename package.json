@@ -1,0 +1,32 @@
+{
+  "name": "@annoyingmouse/wc-trim-middle",
+  "version": "1.0.0",
+  "description": "This web component was inspired by Chris Heilmann and does not trim strings that don’t fit the space at the end, but in the middle of the string",
+  "main": "wc-trim-middle.js",
+  "scripts": {
+    "test": "echo \"No test specified\"",
+    "build": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/annoyingmouse/wc-trim-middle.git"
+  },
+  "keywords": [
+    "progress",
+    "web-component"
+  ],
+  "author": "Dominic Myers",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/annoyingmouse/wc-trim-middle/issues"
+  },
+  "homepage": "https://github.com/annoyingmouse/wc-trim-middle#readme",
+  "prettier": {
+    "singleQuote": true,
+    "semi": false
+  },
+  "devDependencies": {
+    "rollup": "^2.36.2",
+    "rollup-plugin-terser": "^7.0.2"
+  }
+}
