@@ -8,10 +8,10 @@
     "format": "biome format --write .",
     "lint": "biome lint .",
     "build": "rollup -c",
-    "release": "np",
-    "release:patch": "np patch",
-    "release:minor": "np minor",
-    "release:major": "np major"
+    "release": "npm run build && git add -A && git commit -m \"chore: release artifacts\" && git push && git push --tags && npm publish --access public",
+    "release:patch": "npm version patch && npm run release",
+    "release:minor": "npm version minor && npm run release",
+    "release:major": "npm version major && npm run release"
   },
   "repository": {
     "type": "git",
@@ -39,7 +39,6 @@
   "devDependencies": {
     "@biomejs/biome": "^2.4.9",
     "@rollup/plugin-terser": "^1.0.0",
-    "np": "^10.1.0",
     "rollup": "^4.0.0"
   }
 }
