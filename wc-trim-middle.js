@@ -15,6 +15,7 @@ class WCTrimMiddle extends HTMLSpanElement {
         this.replacement,
       );
       this.setAttribute("title", this.#originalText);
+      this.setAttribute("aria-label", this.#originalText);
     }
     this.#observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
@@ -32,9 +33,11 @@ class WCTrimMiddle extends HTMLSpanElement {
                 this.replacement,
               );
               this.setAttribute("title", this.#originalText);
+              this.setAttribute("aria-label", this.#originalText);
             } else {
               this.textContent = this.#originalText;
               this.removeAttribute("title");
+              this.removeAttribute("aria-label");
             }
           }
         }
@@ -61,9 +64,11 @@ class WCTrimMiddle extends HTMLSpanElement {
             this.replacement,
           );
           this.setAttribute("title", this.#originalText);
+          this.setAttribute("aria-label", this.#originalText);
         } else {
           this.textContent = this.#originalText;
           this.removeAttribute("title");
+          this.removeAttribute("aria-label");
         }
       }
       if (name === "replacement" && this.#originalText) {
@@ -74,9 +79,11 @@ class WCTrimMiddle extends HTMLSpanElement {
             this.replacement,
           );
           this.setAttribute("title", this.#originalText);
+          this.setAttribute("aria-label", this.#originalText);
         } else {
           this.textContent = this.#originalText;
           this.removeAttribute("title");
+          this.removeAttribute("aria-label");
         }
       }
     }
@@ -140,4 +147,26 @@ class WCTrimMiddle extends HTMLSpanElement {
   }
 }
 
-customElements.define("wc-trim-middle", WCTrimMiddle, { extends: "span" });
+function define() {
+  customElements.define("wc-trim-middle", WCTrimMiddle, { extends: "span" });
+}
+
+function supportsCustomizedBuiltins() {
+  if (!("customElements" in window)) return false;
+  class P extends HTMLParagraphElement {}
+  try {
+    customElements.define("wc-p-test", P, { extends: "p" });
+    return document.createElement("p", { is: "wc-p-test" }) instanceof P;
+  } catch (_e) {
+    return false;
+  }
+}
+
+if (supportsCustomizedBuiltins()) {
+  define();
+} else {
+  const polyfill = document.createElement("script");
+  polyfill.src = "https://unpkg.com/@ungap/custom-elements";
+  polyfill.onload = define;
+  document.head.appendChild(polyfill);
+}

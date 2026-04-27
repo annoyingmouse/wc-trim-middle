@@ -3,17 +3,28 @@
   "version": "1.0.2",
   "description": "This web component was inspired by Chris Heilmann and does not trim strings that don’t fit the space at the end, but in the middle of the string",
   "main": "wc-trim-middle.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"No test specified\"",
-    "build": "rollup -c"
+    "format": "biome format --write .",
+    "lint": "biome lint .",
+    "build": "rollup -c",
+    "release": "np",
+    "release:patch": "np patch",
+    "release:minor": "np minor",
+    "release:major": "np major"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/annoyingmouse/wc-trim-middle.git"
   },
   "keywords": [
+    "web-component",
+    "custom-element",
     "truncate",
-    "web-component"
+    "text-truncation",
+    "middle-truncation",
+    "accessibility",
+    "a11y"
   ],
   "author": "Dominic Myers",
   "license": "MIT",
@@ -26,10 +37,9 @@
     "semi": false
   },
   "devDependencies": {
-    "rollup": "^2.36.2",
-    "rollup-plugin-terser": "^7.0.2"
-  },
-  "dependencies": {
-    "np": "^10.1.0"
+    "@biomejs/biome": "^2.4.9",
+    "@rollup/plugin-terser": "^1.0.0",
+    "np": "^10.1.0",
+    "rollup": "^4.0.0"
   }
 }

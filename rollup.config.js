@@ -1,13 +1,11 @@
-import { terser } from 'rollup-plugin-terser'
+import terser from "@rollup/plugin-terser";
 
 export default {
-  input: './wc-trim-middle.js',
+  input: "./wc-trim-middle.js",
   output: {
-    file: 'dist/wc-trim-middle.min.js',
-    format: 'iife',
-    sourcemap: 'inline',
+    file: "dist/wc-trim-middle.min.js",
+    format: "iife",
+    sourcemap: "inline",
   },
-  plugins: [
-    terser()
-  ],
-}
+  plugins: [terser()],
+};
